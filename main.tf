@@ -94,3 +94,19 @@ resource "aws_lb_listener" "app" {
     }
   }
 }
+
+data "aws_route53_zone" "selected" {
+  name = "awss3.com"
+}
+
+resource "aws_route53_record" "blue" {
+  zone_id = data.aws_route53_zone.selected.zone_id
+  name    = "blue.${data.aws_route53_zone.selected.name}"
+  type    = "A"
+
+  alias {
+    name                   = aws_lb.app.dns_name
+    zone_id                = aws_lb.app.zone_id
+    evaluate_target_health = true
+  }
+}
