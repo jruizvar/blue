@@ -67,22 +67,15 @@ variable "private_subnet_cidr_blocks" {
   ]
 }
 
-variable "enable_blue_env" {
-  description = "Enable blue environment"
-  type        = bool
-  default     = true
-}
-
-variable "aws_ami_amazon_linux" {
-  description = "Amazon Linux 2 Kernel 5.10 AMI 2.0.20231116.0 x86_64 HVM gp2"
+variable "streamlit_app" {
+  description = "Streamlit app Python code"
   type        = string
-  default     = "ami-080eb59d3dad58116"
 }
 
-variable "blue_instance_count" {
-  description = "Number of instances in blue environment"
-  type        = number
-  default     = 1
+variable "aws_ami_linux_debian" {
+  description = "Linux Debian 12"
+  type        = string
+  default     = "ami-0c0746ac7168488ae"
 }
 
 variable "certificate_arn" {
