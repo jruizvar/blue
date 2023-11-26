@@ -11,4 +11,4 @@ curl -sSL https://install.python-poetry.org | POETRY_HOME=/etc/poetry python3 -
 
 echo "${streamlit_app}" | base64 --decode > streamlit_app.py 
 
-/etc/poetry/bin/poetry run streamlit run streamlit_app.py
+/etc/poetry/bin/poetry run streamlit run streamlit_app.py --server.port 80
